@@ -1,0 +1,15 @@
+//flex复用
+@mixin flex($hov:space-between,$col:center){
+  display: flex;
+  justify-content: $hov;
+  align-items: $col;
+}
+
+@mixin bacImg($w:0,$h:0,$url:'',$size:contain){
+  display: inline-block;
+  height: $w;
+  width: $h;
+  background: url($url) no-repeat center;
+  background-size: $size;
+
+}
