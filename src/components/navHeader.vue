@@ -25,15 +25,191 @@
         <div class="head-menu">
           <div class="item-menu">
             <span>小米手机</span>
-            <div class="children"></div>
+            <div class="children">
+              <ul>
+                <li class="product">
+                  <a href="javascript:;" target="_blank">
+                    <div class="pro-img">
+                      <img src="../../public/imgs/nav-img/nav-6.png" alt="">
+                    </div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">￥2999</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="javascript:;" target="_blank">
+                    <div class="pro-img">
+                      <img src="../../public/imgs/nav-img/nav-1.png" alt="">
+                    </div>
+                    <div class="pro-name">小米11</div>
+                    <div class="pro-price">￥5999</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="javascript:;" target="_blank">
+                    <div class="pro-img">
+                      <img src="../../public/imgs/nav-img/nav-2.png" alt="">
+                    </div>
+                    <div class="pro-name">小米11pro</div>
+                    <div class="pro-price">￥4999</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="javascript:;" target="_blank">
+                    <div class="pro-img">
+                      <img src="../../public/imgs/nav-img/nav-3.png" alt="">
+                    </div>
+                    <div class="pro-name">小米MIX FOLD</div>
+                    <div class="pro-price">￥9999</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="javascript:;" target="_blank">
+                    <div class="pro-img">
+                      <img src="../../public/imgs/nav-img/nav-4.png" alt="">
+                    </div>
+                    <div class="pro-name">小米MIX FOLD pro</div>
+                    <div class="pro-price">￥12999</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="javascript:;" target="_blank">
+                    <div class="pro-img">
+                      <img src="../../public/imgs/nav-img/nav-5.png" alt="">
+                    </div>
+                    <div class="pro-name">小米CC9 pro</div>
+                    <div class="pro-price">￥5999</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="item-menu">
             <span>RedMi</span>
-            <div class="children"></div>
+
+              <div class="children">
+                <ul>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-2.png" alt="">
+                      </div>
+                      <div class="pro-name">小米CC9</div>
+                      <div class="pro-price">￥2999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-1.png" alt="">
+                      </div>
+                      <div class="pro-name">小米11</div>
+                      <div class="pro-price">￥5999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-2.png" alt="">
+                      </div>
+                      <div class="pro-name">小米11pro</div>
+                      <div class="pro-price">￥4999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-3.png" alt="">
+                      </div>
+                      <div class="pro-name">小米MIX FOLD</div>
+                      <div class="pro-price">￥9999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-4.png" alt="">
+                      </div>
+                      <div class="pro-name">小米MIX FOLD pro</div>
+                      <div class="pro-price">￥12999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-5.png" alt="">
+                      </div>
+                      <div class="pro-name">小米CC9 pro</div>
+                      <div class="pro-price">￥5999</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+
           </div>
           <div class="item-menu">
             <span>小米电视</span>
-            <div class="children"></div>
+
+              <div class="children">
+                <ul>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-3-6.png" alt="">
+                      </div>
+                      <div class="pro-name">小米电视大师</div>
+                      <div class="pro-price">￥2999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-3-1.jpg" alt="">
+                      </div>
+                      <div class="pro-name">小米电视大屏</div>
+                      <div class="pro-price">￥5999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-3-2.jpg" alt="">
+                      </div>
+                      <div class="pro-name">小米电视至尊纪念版</div>
+                      <div class="pro-price">￥4999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-3-3.png" alt="">
+                      </div>
+                      <div class="pro-name">小米电视无敌好看</div>
+                      <div class="pro-price">￥9999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-3-4.jpg" alt="">
+                      </div>
+                      <div class="pro-name">小米电视蓝光超超清</div>
+                      <div class="pro-price">￥12999</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="javascript:;" target="_blank">
+                      <div class="pro-img">
+                        <img src="../../public/imgs/nav-img/nav-3-5.jpg" alt="">
+                      </div>
+                      <div class="pro-name">小米电视青春版</div>
+                      <div class="pro-price">￥5999</div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
           </div>
         </div>
         <div class="head-search">
@@ -49,13 +225,36 @@
 
 <script>
 export default {
-name: "navHeader"
+name: "navHeader",
+  data(){
+  return{
+    username:'jack',
+    phonelist:[]
+  }
+  },
+  mounted() {
+    this.getProductList();
+  },
+  methods:{
+    getProductList(){
+      this.axios.get('/products',{
+        params:{
+          categoryId:'100012',
+        }
+      }).then((res)=>{
+        if(res.list>6){
+          this.phonelist = res.list.slice(0,6);
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 @import '../assets/sass/base';
 @import '../assets/sass/mixin';
+@import '../assets/sass/config';
 .header{
   .nav-topbar{
     height: 39px;
@@ -79,7 +278,6 @@ name: "navHeader"
 
       .icon-cart{
         @include bacImg(16px,16px,'../../public/imgs/icon-cart-checked.png');
-
         margin-right: 4px;
       }
     }
@@ -89,7 +287,7 @@ name: "navHeader"
     .container{
       height: 112px;
       @include flex();
-
+      position: relative;
       .head-logo{
         display: inline-block;
         width: 55px;
@@ -131,7 +329,67 @@ name: "navHeader"
             margin-left: 20px;
             span{
               cursor: pointer;
-              &:hover{
+            }
+            &:hover{
+              color: $colorA;
+              .children{
+                height: 220px;
+                opacity: 1;
+              }
+            }
+            .children{
+              position: absolute;
+              top: 112px;
+              overflow: hidden;
+              left: 0;
+              width: 1226px;
+              border-top: 1px solid #e5e5e5;
+              box-shadow: 0 7px 6px 0 rgba(0,0,0,.11);
+              background-color: #ffffff;
+              z-index: 10;
+              height: 0;
+              opacity: 0;
+              transition: all .5s;
+              .product{
+                position: relative;
+                float: left;
+                width: 16.6%;
+                height: 111px;
+                font-size: 12px;
+                line-height: 12px;
+                text-align: center;
+                &:before{
+                  content: ' ';
+                  position: absolute;
+                  top: 28px;
+                  right: 0;
+                  border-left: 1px solid $colorF;
+                  height: 100px;
+                  width: 1px;
+                }
+                &:last-child:before{
+                  display: none;
+                }
+                a{
+                  display: inline-block;
+                }
+                img{
+                  width: auto;
+                  height: 111px;
+                  margin-top: 26px;
+                }
+                .pro-img{
+
+                }
+                .pro-name{
+                  font-weight: bold;
+                  margin-top: 19px;
+                  margin-bottom: 8px;
+                  color: $colorB;
+                }
+                .pro-price{
+                  color: $colorA;
+                }
 
               }
             }
@@ -164,6 +422,4 @@ name: "navHeader"
     }
   }
 }
-
-
 </style>
