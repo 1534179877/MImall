@@ -242,7 +242,7 @@ name: "navHeader",
           categoryId:'100012',
         }
       }).then((res)=>{
-        if(res.list>6){
+        if(res.list.length>6){
           this.phonelist = res.list.slice(0,6);
         }
       })
