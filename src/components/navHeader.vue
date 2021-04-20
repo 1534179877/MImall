@@ -9,9 +9,11 @@
           <a href="javascript:;">协议规则</a>
         </div>
         <div class="topbar-user">
-          <a href="javascript:;">登录</a>
-          <a href="javascript:;">注册</a>
-          <a href="javascript:;" class="my-cart">
+          <a href="javascript:;" v-if="username">{{ username }}</a>
+          <a href="javascript:;" v-else @click="login">登录</a>
+          <a href="javascript:;" v-if="username">我的订单</a>
+          <a href="javascript:;" v-else>登录</a>
+          <a href="javascript:;" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>
             购物车</a>
         </div>
@@ -27,58 +29,13 @@
             <span>小米手机</span>
             <div class="children">
               <ul>
-                <li class="product">
-                  <a href="javascript:;" target="_blank">
+                <li class="product" v-for="(item,index) in phonelist" :key="index">
+                  <a :href="'/#/product/'+item.id" target="_blank">
                     <div class="pro-img">
-                      <img src="../../public/imgs/nav-img/nav-6.png" alt="">
+                      <img :src="item.mainImage" :alt="item.subtitle">
                     </div>
-                    <div class="pro-name">小米CC9</div>
-                    <div class="pro-price">￥2999</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href="javascript:;" target="_blank">
-                    <div class="pro-img">
-                      <img src="../../public/imgs/nav-img/nav-1.png" alt="">
-                    </div>
-                    <div class="pro-name">小米11</div>
-                    <div class="pro-price">￥5999</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href="javascript:;" target="_blank">
-                    <div class="pro-img">
-                      <img src="../../public/imgs/nav-img/nav-2.png" alt="">
-                    </div>
-                    <div class="pro-name">小米11pro</div>
-                    <div class="pro-price">￥4999</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href="javascript:;" target="_blank">
-                    <div class="pro-img">
-                      <img src="../../public/imgs/nav-img/nav-3.png" alt="">
-                    </div>
-                    <div class="pro-name">小米MIX FOLD</div>
-                    <div class="pro-price">￥9999</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href="javascript:;" target="_blank">
-                    <div class="pro-img">
-                      <img src="../../public/imgs/nav-img/nav-4.png" alt="">
-                    </div>
-                    <div class="pro-name">小米MIX FOLD pro</div>
-                    <div class="pro-price">￥12999</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href="javascript:;" target="_blank">
-                    <div class="pro-img">
-                      <img src="../../public/imgs/nav-img/nav-5.png" alt="">
-                    </div>
-                    <div class="pro-name">小米CC9 pro</div>
-                    <div class="pro-price">￥5999</div>
+                    <div class="pro-name">{{ item.name }}</div>
+                    <div class="pro-price">{{ item.price | currency}}</div>
                   </a>
                 </li>
               </ul>
@@ -86,7 +43,6 @@
           </div>
           <div class="item-menu">
             <span>RedMi</span>
-
               <div class="children">
                 <ul>
                   <li class="product">
@@ -227,10 +183,17 @@
 export default {
 name: "navHeader",
   data(){
-  return{
-    username:'jack',
-    phonelist:[]
-  }
+    return{
+      username:'jack',
+      phonelist:[],
+      redphonelist:[]
+    }
+  },
+  filters:{
+    currency(val){
+      if(!val) return '0.00';
+      return '￥' +val.toFixed(2) + '起';
+    }
   },
   mounted() {
     this.getProductList();
@@ -240,12 +203,20 @@ name: "navHeader",
       this.axios.get('/products',{
         params:{
           categoryId:'100012',
+          pageSize : 6
         }
       }).then((res)=>{
-        if(res.list.length>6){
+        if(res.list.length>=6){
           this.phonelist = res.list.slice(0,6);
+          this.redphonelist = res.list.slice(7,13);
         }
       })
+    },
+    goToCart(){
+      this.$router.push('/Cart');
+    },
+    login(){
+      this.$router.push('/login');
     }
   }
 }
@@ -295,13 +266,12 @@ name: "navHeader",
         background-color: #FF6600;
         a{
           display: inline-block;
-
           width: 110px;
           height: 55px;
           &:before{
             content: ' ';
 
-            @include bacImg(55px,55px,"../../public/imgs/mi-logo.png");
+            @include bacImg(55px,55px,"../../public/imgs/logo-mi2.png");
             transition: margin .5s;
           }
           &:after{

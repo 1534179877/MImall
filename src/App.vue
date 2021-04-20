@@ -5,9 +5,7 @@
 </template>
 
 <script>
-//import storage from './storage'
 import axios from 'axios'
-//import jsonp from 'jsonp'
 export default {
   name: 'App',
   components: {
@@ -17,7 +15,6 @@ export default {
     return{}
   },
   mounted() {
-    //storage.setItem('a',1);
     axios.get();
   }
 }
