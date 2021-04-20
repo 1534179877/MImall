@@ -214,7 +214,7 @@ export default {
     }
     .product-box{
       background-color: $colorJ;
-      padding: 30px 0 50px;
+      padding: 30px 0 10px;
       h2{
         font-size: $fontF;
         height: 21px;
