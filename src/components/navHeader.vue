@@ -3,19 +3,19 @@
     <div class="nav-topbar">
       <div class="container">
         <div class="topbar-menu">
-          <a href="javascript:;">小米商城</a>
-          <a href="javascript:;">MIUI</a>
-          <a href="javascript:;">云服务</a>
-          <a href="javascript:;">协议规则</a>
+          <a href="javascript:">小米商城</a>
+          <a href="javascript:">MIUI</a>
+          <a href="javascript:">云服务</a>
+          <a href="javascript:">协议规则</a>
         </div>
         <div class="topbar-user">
-          <a href="javascript:;" v-if="username">{{ username }}</a>
-          <a href="javascript:;" v-else @click="login">登录</a>
-          <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" v-else>登录</a>
-          <a href="javascript:;" class="my-cart" @click="goToCart">
+          <a href="javascript:" v-if="username">{{ username }}</a>
+          <a href="javascript:" v-else @click="login">登录</a>
+          <a href="javascript:" v-if="username">我的订单</a>
+          <a href="javascript:" v-else>登录</a>
+          <a href="javascript:" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>
-            购物车</a>
+            购物车({{cartCount}})</a>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
                   <li class="product">
                     <a href="javascript:;" target="_blank">
                       <div class="pro-img">
-                        <img src="../../public/imgs/nav-img/nav-2.png" alt="">
+                        <img v-lazy="require('../../public/imgs/nav-img/nav-2.png')" alt="">
                       </div>
                       <div class="pro-name">小米CC9</div>
                       <div class="pro-price">￥2999</div>
@@ -57,7 +57,7 @@
                   <li class="product">
                     <a href="javascript:;" target="_blank">
                       <div class="pro-img">
-                        <img src="../../public/imgs/nav-img/nav-1.png" alt="">
+                        <img v-lazy="require('../../public/imgs/nav-img/nav-1.png')" alt="">
                       </div>
                       <div class="pro-name">小米11</div>
                       <div class="pro-price">￥5999</div>
@@ -66,7 +66,7 @@
                   <li class="product">
                     <a href="javascript:;" target="_blank">
                       <div class="pro-img">
-                        <img src="../../public/imgs/nav-img/nav-2.png" alt="">
+                        <img v-lazy="require('../../public/imgs/nav-img/nav-2.png')" alt="">
                       </div>
                       <div class="pro-name">小米11pro</div>
                       <div class="pro-price">￥4999</div>
@@ -180,14 +180,28 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
 name: "navHeader",
   data(){
     return{
-      username:'jack',
+      //username:this.$store.state.username,
       phonelist:[],
       redphonelist:[]
     }
+  },
+  computed:{
+  //为什么使用计算属性 因为是先渲染后再请求，就会有延迟，而计算属性可以再count变化的时候冲洗计算泵更新dom
+  // 最直接的就是通过计算属性return一个状态
+  /*  username(){
+      return this.$store.state.username;
+    },
+    cartCount(){
+      return this.$store.state.cartCount;
+    }*/
+    //这里使用的mapstateh函数 可以解决重复冗余的问题
+    ...mapState(['username'],['cartCount']),
+    // 映射 this.username 为 store.state.username
   },
   filters:{
     currency(val){
@@ -217,15 +231,16 @@ name: "navHeader",
     },
     login(){
       this.$router.push('/login');
+      console.log('hhhh');
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-@import '../assets/sass/base';
-@import '../assets/sass/mixin';
 @import '../assets/sass/config';
+@import '../assets/sass/mixin';
+@import '../assets/sass/base';
 .header{
   .nav-topbar{
     height: 39px;
@@ -240,6 +255,9 @@ name: "navHeader",
       display: inline-block;
       color: #B0B0B0;
       margin-right: 17px;
+      &:last-child{
+        margin-right: 0;
+      }
     }
     .my-cart{
       width: 100px;

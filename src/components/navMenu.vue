@@ -163,11 +163,11 @@ export default {
         .children{
           display: none;
           width: 962px;
-          height: 451px;
+          height: 461px;
           background-color: $colorG;
           position: absolute;
           top: 0;
-          left: 246px;
+          left: 264px;
           border: 1px solid $colorH;
           ul{
             display: flex;

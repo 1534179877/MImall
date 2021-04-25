@@ -12,3 +12,20 @@
   background: url($url) no-repeat center;
   background-size: $size;
 }
+@mixin posbImg($pos,$top,$right,$w:0,$h:0,$url:''){
+  position: $pos;
+  top: $top;
+  right: $right;
+  height: $w;
+  width: $h;
+  background: url($url) no-repeat center;
+  background-size: contain;
+}
+
+@mixin pos($pos,$top:0,$left:0,$w:100%,$h:100%){
+  position: $pos;
+  top: $top;
+  left: $left;
+  width: $w;
+  height: $h;
+}
