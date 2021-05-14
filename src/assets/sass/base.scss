@@ -1,8 +1,10 @@
+@import './mixin';
 .container{
   width: 1226px;
   margin-right: auto;
   margin-left: auto;
 }
+
 a{
   img{
     width: 100%;
@@ -43,5 +45,46 @@ a{
     &:last-child{
       margin-right: 0;
     }
+  }
+}
+//通用浮动样式
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix:before,.clearfix:after{
+  content:' ';
+  display:table;
+}
+.clearfix:after{
+  clear: both;
+}
+//公共logo
+.head-logo{
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  background-color: #FF6600;
+  a{
+    display: inline-block;
+    width: 110px;
+    height: 55px;
+    &:before{
+      content: ' ';
+
+      @include bacImg(55px,55px,"/imgs/mi-logo.png");
+      transition: margin .5s;
+    }
+    &:after{
+      content: ' ';/*占位*/
+      @include bacImg(55px,55px,"/imgs/mi-home.png");
+    }
+    &:hover:before{
+      margin-left: -55px;
+      transition: .5s;
+    }
+
   }
 }

@@ -48,18 +48,22 @@ name: "login",
     }
   },
   methods:{
-
     login(){
       let {username,password} = this; // 结构获取
       this.axios.post('/user/login',{
         username,
         password
       }).then((res)=>{
-        this.$cookie.set('userid',res.id,{expires:'1D'})
+        this.$cookie.set('userid',res.id,{expires:'Session'})
         //触发actions8
         //this.$store.dispatch('saveUserName',res.username)
         this.saveUserName(res.username); // 使用map
-        this.$router.push('/index');
+        this.$router.push({
+          name: 'index',
+          params: {
+                from: 'login'
+              }
+            });
       })
     },
     // 将`this.saveUserName()`映射为 `this.$store.dispatch('saveUserName')`
@@ -135,16 +139,7 @@ name: "login",
 
           }
         }
-          .btn{
-            display: block;
-            width:100%;
-            line-height:50px;
-            margin-top:10px;
-            font-size:16px;
-            background-color: #FF6600;
-            text-align: center;
-            color: #F5F5F5;
-          }
+
 
 
         .tips{

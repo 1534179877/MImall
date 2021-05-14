@@ -11,11 +11,10 @@
         <div class="topbar-user">
           <a href="javascript:" v-if="username">{{ username }}</a>
           <a href="javascript:" v-else @click="login">登录</a>
+          <a href="javascript:" v-if="username" @click="logout">退出</a>
           <a href="javascript:" v-if="username">我的订单</a>
-          <a href="javascript:" v-else>登录</a>
-          <a href="javascript:" class="my-cart" @click="goToCart">
-            <span class="icon-cart"></span>
-            购物车({{cartCount}})</a>
+
+          <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
         </div>
       </div>
     </div>
@@ -46,9 +45,9 @@
               <div class="children">
                 <ul>
                   <li class="product">
-                    <a href="javascript:;" target="_blank">
+                    <a href="javascript:" target="_blank">
                       <div class="pro-img">
-                        <img v-lazy="require('../../public/imgs/nav-img/nav-2.png')" alt="">
+                        <img src="require('../../public/imgs/nav-img/nav-2.png')" alt="">
                       </div>
                       <div class="pro-name">小米CC9</div>
                       <div class="pro-price">￥2999</div>
@@ -57,7 +56,7 @@
                   <li class="product">
                     <a href="javascript:;" target="_blank">
                       <div class="pro-img">
-                        <img v-lazy="require('../../public/imgs/nav-img/nav-1.png')" alt="">
+                        <img src="require('../../public/imgs/nav-img/nav-1.png')" alt="">
                       </div>
                       <div class="pro-name">小米11</div>
                       <div class="pro-price">￥5999</div>
@@ -66,7 +65,7 @@
                   <li class="product">
                     <a href="javascript:;" target="_blank">
                       <div class="pro-img">
-                        <img v-lazy="require('../../public/imgs/nav-img/nav-2.png')" alt="">
+                        <img src="require('../../public/imgs/nav-img/nav-2.png')" alt="">
                       </div>
                       <div class="pro-name">小米11pro</div>
                       <div class="pro-price">￥4999</div>
@@ -193,14 +192,14 @@ name: "navHeader",
   computed:{
   //为什么使用计算属性 因为是先渲染后再请求，就会有延迟，而计算属性可以再count变化的时候冲洗计算泵更新dom
   // 最直接的就是通过计算属性return一个状态
-  /*  username(){
+    /*username(){
       return this.$store.state.username;
     },
     cartCount(){
       return this.$store.state.cartCount;
     }*/
-    //这里使用的mapstateh函数 可以解决重复冗余的问题
-    ...mapState(['username'],['cartCount']),
+    //这里使用的mapstate函数 可以解决重复冗余的问题
+    ...mapState(['username','cartCount'])
     // 映射 this.username 为 store.state.username
   },
   filters:{
@@ -211,8 +210,18 @@ name: "navHeader",
   },
   mounted() {
     this.getProductList();
+    let params = this.$route.params;
+    if(params && params.from=='login'){
+      this.getCartCount();
+    }
+
   },
   methods:{
+    getCartCount(){
+      this.axios.get('/carts/products/sum').then((res)=>{
+        this.$store.dispatch('saveCartCount',res)
+      })
+    },
     getProductList(){
       this.axios.get('/products',{
         params:{
@@ -231,7 +240,17 @@ name: "navHeader",
     },
     login(){
       this.$router.push('/login');
-      console.log('hhhh');
+
+    },
+    logout(){
+      this.axios.post('/user/logout').then(()=>{
+        this.$message.success("退出成功");
+        //清除cookie
+        this.$cookie.set('userId','',{expires:-1});
+        this.$store.dispatch('saveUserName','');
+        this.$store.dispatch('saveCartCount','0');
+      })
+
     }
   }
 }
@@ -260,7 +279,7 @@ name: "navHeader",
       }
     }
     .my-cart{
-      width: 100px;
+      width: 110px;
       background-color: #FF6600;
       text-align: center;
       color: #ffffff;
@@ -277,32 +296,6 @@ name: "navHeader",
       height: 112px;
       @include flex();
       position: relative;
-      .head-logo{
-        display: inline-block;
-        width: 55px;
-        height: 55px;
-        background-color: #FF6600;
-        a{
-          display: inline-block;
-          width: 110px;
-          height: 55px;
-          &:before{
-            content: ' ';
-
-            @include bacImg(55px,55px,"../../public/imgs/logo-mi2.png");
-            transition: margin .5s;
-          }
-          &:after{
-            content: ' ';/*占位*/
-            @include bacImg(55px,55px,"../../public/imgs/mi-home.png");
-          }
-          &:hover:before{
-            margin-left: -55px;
-            transition: .5s;
-          }
-
-        }
-      }
 
       .head-menu{
         display: inline-block;
@@ -403,7 +396,6 @@ name: "navHeader",
         }
         a{
           @include bacImg(18px,18px,"../../public/imgs/icon-search.png");
-
           margin-left: 18px;
         }
       }

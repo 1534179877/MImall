@@ -2,7 +2,7 @@
   <div class="product">
     <product-param :title="product.name">
       <template v-slot:buy>
-        <button class="btn">立即购买</button>
+        <button class="btn" @click="buy">立即购买</button>
       </template>
     </product-param>
     <div class="content">
@@ -42,7 +42,7 @@
         <div class="video-bg" @click="showSlide='slideDown'"></div>
         <div class="video-box" v-show="showSlide">
           <div class="overlay"></div>
-          <div class="video" v-bind:class="showSlide">
+          <div class="video" :class="showSlide">
             <span class="icon-close" @click="closeVideo"></span>
             <video src="/imgs/product/video.mp4" muted autoplay controls="controls"></video>
           </div>

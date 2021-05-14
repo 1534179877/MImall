@@ -31,7 +31,7 @@
           <div class="banner-list">
             <div class="list" v-for="(items,index) in phoneList" :key="index">
               <div class="item" v-for="(item,i) in items" :key="i">
-                <a :href="'/#/product/'+item.id">
+<!--                <a :href="'/#/product/'+item.id">-->
                   <span :class="{'new-pro':j%2==0}">新品</span>
                   <div class="item-img">
                     <img v-lazy="item.mainImage" alt="">
@@ -41,7 +41,7 @@
                     <p>{{ item.subtitle }}</p>
                     <p class="price" @click="addcart(item.id)">{{ item.price }}</p>
                   </div>
-                </a>
+<!--                </a>-->
               </div>
 
             </div>
@@ -154,9 +154,15 @@ export default {
         this.phoneList = [res.list.slice(0,4),res.list.slice(4,8)]
       })
     },
-    addcart(){
-      this.isshow = true
+    addcart(id){
 
+      this.axios.post('/carts',{
+        productId:id,
+        selected: true
+      }).then((res)=>{
+        this.isshow = true;
+        this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
+      });
     },
     goToCart(){
       this.$router.push('/cart');
