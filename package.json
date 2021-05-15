@@ -15,6 +15,7 @@
     "element-ui": "^2.15.1",
     "jsonp": "^0.2.1",
     "node-sass": "^5.0.0",
+    "qrcode": "^1.4.4",
     "sass-loader": "^10.1.1",
     "swiper": "^5.3.6",
     "vue": "^2.6.12",
@@ -31,6 +32,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

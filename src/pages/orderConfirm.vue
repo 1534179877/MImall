@@ -1,5 +1,10 @@
 <template>
   <div class="order-confirm">
+    <order-header title="订单确认">
+      <template v-slot:tip>
+        <span>注意收货地址</span>
+      </template>
+    </order-header>
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
     <defs>
       <symbol id="icon-add" viewBox="0 0 31 32">
@@ -157,6 +162,7 @@
 
 <script>
 import Modal from '../components/modalWindow'
+import orderHeader from "../components/orderHeader";
 export default {
   name: "orderConfirm",
   data(){
@@ -165,7 +171,7 @@ export default {
       cartList:[],//购物车中需要结算的商品列表
       cartTotalPrice:0,//商品总金额
       count:0,//商品结算数量
-      checkedItem:{},//选中的地址
+      checkedItem:{},//选中的地址中的
       userAction:'',//用户行为 0：新增 1：编辑 2：删除
       showDelModal:false,//是否显示删除弹框
       showEditModal:false,//是否显示新增或者编辑弹框
@@ -176,7 +182,7 @@ export default {
     this.getAddressList();
     this.getCartList();
   },
-  components:{ Modal },
+  components:{ Modal ,orderHeader },
   methods:{
     //获取地址列表
     getAddressList(){

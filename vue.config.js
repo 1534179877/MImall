@@ -18,6 +18,9 @@ module.exports = {
         }
       }
     }
+  },
 
-}
+  chainWebpack:(config)=>{//防止一次性全部拉取文件
+    config.plugins.delete('prefetch');
+  }
 }

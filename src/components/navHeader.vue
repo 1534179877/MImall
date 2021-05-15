@@ -12,7 +12,7 @@
           <a href="javascript:" v-if="username">{{ username }}</a>
           <a href="javascript:" v-else @click="login">登录</a>
           <a href="javascript:" v-if="username" @click="logout">退出</a>
-          <a href="javascript:" v-if="username">我的订单</a>
+          <a href="javascript:" v-if="username" @click="gotoorderlist">我的订单</a>
 
           <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
         </div>
@@ -251,6 +251,9 @@ name: "navHeader",
         this.$store.dispatch('saveCartCount','0');
       })
 
+    },
+    gotoorderlist(){
+      this.$router.push('/order/list')
     }
   }
 }

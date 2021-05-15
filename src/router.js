@@ -2,15 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/home'
 import Index from './pages/index'
-import Product from './pages/product/product'
-import Detail from './pages/product/detail'
-import Cart from './pages/cart'
-import Order from './pages/order'
-import OrderConfirm from './pages/orderConfirm'
-import OrderList from './pages/orderList'
-import OrderPay from './pages/orderPay'
-import ZfbPay from './pages/zfbpay'
-import Login from './pages/login'
+
+
+
 
 
 Vue.use(Router);
@@ -31,51 +25,49 @@ export default new Router({
         }, {
           path:'/product/:id',
           name:'product',
-          component:Product
+          //按需路由加载
+          component:() => import('./pages/product/product')
         }, {
           path:'/detail/:id',
           name:'detail',
-          component:Detail
-        }, {
-          path:'/index',
-          name:'index',
-          component:Index
+          component:() => import('./pages/product/detail')
         }
       ]
     },
     {
       path:'/cart',
       name:'cart',
-      component:Cart
+      component:() => import('./pages/cart')
     },
     {
       path:'/login',
       name:'login',
-      component:Login
+      //通过import函数实现路由
+      component: () => import('./pages/login')
     },
     {
       path:'/order',
       name:'order',
-      component:Order,
+      component:() => import('./pages/login'),
       children:[
         {
           path: 'list',
           name:'order-list',
-          component: OrderList,
+          component:() => import('./pages/orderList')
         },{
           path: 'pay',
           name:'order-pay',
-          component: OrderPay,
+          component:() => import('./pages/orderPay')
         },{
           path: 'zfbpay',
           name:'zfb-pay',
-          component: ZfbPay,
+          component:() => import('./pages/zfbpay')
         }
         ,{
           path: 'confirm',
           name:'order-confirm',
-          component: OrderConfirm,
-        }
+          component:() => import('./pages/orderConfirm')
+      }
 
       ]
     }
