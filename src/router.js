@@ -48,7 +48,7 @@ export default new Router({
     {
       path:'/order',
       name:'order',
-      component:() => import('./pages/login'),
+      component:() => import('./pages/order'),
       children:[
         {
           path: 'list',

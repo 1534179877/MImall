@@ -7,7 +7,7 @@
     </div>
     <div class="wrapper">
       <div class="container">
-        <div class="login-form">
+        <div class="login-form" v-if="islogin">
           <h3>
             <span class="checked">帐号登录</span><span class="sep-line">|</span><span>扫码登录</span>
           </h3>
@@ -21,11 +21,32 @@
             <a href="javascript:;" class="btn" @click="login">登录</a>
           </div>
           <div class="tips">
-            <div class="sms" @click="register">手机短信登录/注册</div>
-            <div class="reg">立即注册<span>|</span>忘记密码？</div>
+            <div class="sms" >手机短信登录/注册</div>
+            <div class="reg" @click="islogin=false"><span>立即注册</span>| <span> 忘记密码？</span></div>
           </div>
         </div>
-        <router-view></router-view>
+        <div class="login-form" v-else>
+          <h3>
+            <span class="checked">帐号注册</span><span class="sep-line">|</span><span>扫码注册</span>
+          </h3>
+          <div class="input">
+            <input type="text" placeholder="请输入用户名" v-model="regname">
+          </div>
+          <div class="input">
+            <input type="password" placeholder="请输入密码" v-model="regpwd">
+          </div>
+          <div class="input">
+            <input type="text" placeholder="请输入邮箱" v-model="email">
+          </div>
+          <div class="btn-box">
+            <a href="javascript:;" class="btn" @click="register">注册</a>
+          </div>
+          <div class="tips">
+            <div class="sms" >手机短信登录/注册</div>
+            <div class="reg" @click="islogin=!islogin"><span>登录</span>| <span> 忘记密码？</span></div>
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="footer">
@@ -37,14 +58,20 @@
 </template>
 
 <script>
+
 import {mapActions} from 'vuex'
 export default {
 name: "login",
+
   data(){
     return{
       username:'',
       password:'',
-      userId:''
+      userId:'',
+      islogin: true,
+      regname: '',
+      regpwd : '',
+      email:''
     }
   },
   methods:{
@@ -70,11 +97,14 @@ name: "login",
     ...mapActions(['saveUserName']),
     register(){
       this.axios.post('/user/register',{
-        username:'pxy',
-        password:'123456',
-        emall:'1534179877@qq.com'
+        username:this.regname,
+        password:this.regpwd,
+        emall:this.email
       }).then(()=>{
-        alert('注册成功');
+        this.$message.success('注册成功');
+        this.islogin = true;
+        this.username = this.regname
+        this.password = this.regpwd
         //this.$router.push('/index');
       })
     }
@@ -155,7 +185,11 @@ name: "login",
             color:#999999;
             span{
               margin:0 7px;
+              &:hover{
+                color: blue;
+              }
             }
+
           }
         }
       }
