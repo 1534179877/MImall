@@ -18,13 +18,11 @@ export default {
   },
 
   mounted() {
-   /* if(this.$cookie.get('userId')){
+    if(this.$cookie.get('userId')){
       this.getUsers();
       this.getCartCount();
-      this.saveState();
-    }*/
-    this.getUsers();
-    this.getCartCount();
+    //  this.saveState();
+    }
 
 
   },
@@ -34,17 +32,17 @@ export default {
   methods:{
     getUsers(){
       this.axios.get('/user').then((res)=>{
+
         this.$store.dispatch('saveUserName',res.username)
       })
     },
     getCartCount(){
       this.axios.get('/carts/products/sum').then((res)=>{
-        this.$store.dispatch('saveCartCount',res)
+        this.$store.dispatch('saveCartCount',res.cartCount)
       })
     },
     saveState () {
       storage.setItem('userandcart',this.$store.state)
-
     }
   }
 }
