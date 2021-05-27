@@ -58,7 +58,7 @@
           <ul>
             <li v-for="(item,index) in cartList" :key="index">
               <div class="good-name">
-                <img v-lazy="item.productMainImage" alt="">
+                <img :src="item.productMainImage" loading="'lazy" alt="">
                 <span>{{item.productName + ' ' + item.productSubtitle}}</span>
               </div>
               <div class="good-price">{{item.productPrice}}元x{{item.quantity}}</div>

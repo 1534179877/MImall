@@ -7,7 +7,7 @@
         <swiper :options="swiperOption">
           <swiper-slide v-for="(item,index) in slideList" :key="index">
             <a :href="'/#/product/'+item.id">
-              <img v-lazy="item.img" alt="">
+              <img :src="item.img" loading="'lazy" alt="">
             </a>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
@@ -25,7 +25,7 @@
         <div class="wrapper">
           <div class="banner-left">
             <a href="/#/product/35">
-              <img v-lazy="require('../../public/imgs/mix-alpha.jpg')" alt="">
+              <img src="/imgs/mix-alpha.jpg"  loading="'lazy" alt="">
             </a>
           </div>
           <div class="banner-list">
@@ -34,7 +34,7 @@
 <!--                <a :href="'/#/product/'+item.id">-->
                   <span :class="{'new-pro':j%2==0}">新品</span>
                   <div class="item-img">
-                    <img v-lazy="item.mainImage" alt="" >
+                    <img :src="item.mainImage" loading="'lazy" alt="" >
                   </div>
                   <div class="item-info">
                     <h3>{{ item.name }}</h3>

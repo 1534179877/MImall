@@ -30,7 +30,7 @@
               <div class="good-box fl">
                 <div class="good-list" v-for="(item,i) in order.orderItemVoList" :key="i">
                   <div class="good-img">
-                    <img v-lazy="item.productImage" alt="">
+                    <img :src="item.productImage" loading="'lazy" alt="">
                   </div>
                   <div class="good-name">
                     <div class="p-name">{{item.productName}}</div>
@@ -39,10 +39,10 @@
                 </div>
               </div>
               <div class="good-state fr" v-if="order.status == 20">
-                <a href="javascript:;">{{order.statusDesc}}</a>
+                <a href="javascript:">{{order.statusDesc}}</a>
               </div>
               <div class="good-state fr" v-else>
-                <a href="javascript:;" @click="goPay(order.orderNo)">{{order.statusDesc}}</a>
+                <a href="javascript:" @click="goPay(order.orderNo)">{{order.statusDesc}}</a>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@
                infinite-scroll-distance="410"
                v-if="false"
           >
-            <img src="/imgs/loading-svg/loading-spinning-bubbles.svg" alt="" v-show="loading">
+            <img src="public/imgs/loading-svg/loading-spinning-bubbles.svg" loading="'lazy" alt="" v-show="loading">
           </div>
           <no-data v-if="!loading && list.length==0"></no-data>
         </div>

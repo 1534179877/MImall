@@ -28,7 +28,7 @@ export default {
 
   },
   created() {
-    window.addEventListener('unload', this.saveState);
+    window.addEventListener('unload', this.saveState); //sessionStorage
   },
   methods:{
     getUsers(){

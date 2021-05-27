@@ -26,11 +26,11 @@
       <div class="item-bg-3"></div>
       <div class="item-swiper">
         <swiper :options="swiperOption">
-          <swiper-slide><img src="/imgs/product/gallery-2.png" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-3.png" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-4.png" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-5.jpg" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-6.jpg" alt=""></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-2.png" loading="'lazy" alt=""></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-3.png" loading="'lazy" alt=""></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-4.png" loading="'lazy" alt=""></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-5.jpg" loading="'lazy" alt=""></swiper-slide>
+          <swiper-slide><img src="/imgs/product/gallery-6.jpg" loading="'lazy" alt=""></swiper-slide>
           <!-- Optional controls -->
           <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
@@ -44,7 +44,7 @@
           <div class="overlay"></div>
           <div class="video" :class="showSlide">
             <span class="icon-close" @click="closeVideo"></span>
-            <video src="/imgs/product/video.mp4" muted autoplay controls="controls"></video>
+            <video src="public/imgs/product/video.mp4" muted autoplay controls="controls"></video>
           </div>
         </div>
       </div>
