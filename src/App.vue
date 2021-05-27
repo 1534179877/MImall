@@ -6,6 +6,7 @@
 
 <script>
 //import axios from 'axios'
+import storage from './storage/index'
 export default {
   name: 'App',
   components: {
@@ -42,7 +43,8 @@ export default {
       })
     },
     saveState () {
-      sessionStorage.setItem('state', JSON.stringify(this.$store.state))
+      storage.setItem('userandcart',this.$store.state)
+
     }
   }
 }

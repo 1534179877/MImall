@@ -247,8 +247,8 @@ name: "navHeader",
         this.$message.success("退出成功");
         //清除cookie
         this.$cookie.set('userId','',{expires:'-1'});
-        //this.$store.dispatch('saveUserName','');
-        //this.$store.dispatch('saveCartCount','0');
+        this.$store.dispatch('saveUserName','');
+        this.$store.dispatch('saveCartCount','0');
       })
 
     },
