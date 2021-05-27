@@ -13,7 +13,8 @@ import store from './store'
 Vue.config.productionTip = false
 Vue.prototype.axios = axios; //原型挂载
 Vue.use(VueLazyload,{
-  loading:'../public/imgs/loading-svg/loading-bars.svg'
+  attempt:2, //尝试加载次数
+  loading:'public/imgs/loading-svg/loading-balls.svg'//加载的路径
 })
 
 Vue.use(VueCookie);

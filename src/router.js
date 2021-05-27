@@ -3,12 +3,8 @@ import Router from 'vue-router'
 import Home from './pages/home'
 import Index from './pages/index'
 
-
-
-
-
 Vue.use(Router);
-
+//按需懒加载
 //导出
 export default new Router({
   routes:[

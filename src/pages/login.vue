@@ -7,7 +7,7 @@
     </div>
     <div class="wrapper">
       <div class="container">
-        <div class="login-form" v-if="islogin">
+        <div class="login-form" v-show="islogin">
           <h3>
             <span class="checked">帐号登录</span><span class="sep-line">|</span><span>扫码登录</span>
           </h3>
@@ -25,7 +25,7 @@
             <div class="reg" @click="islogin=false"><span>立即注册</span>| <span> 忘记密码？</span></div>
           </div>
         </div>
-        <div class="login-form" v-else>
+        <div class="login-form" v-show="!islogin">
           <h3>
             <span class="checked">帐号注册</span><span class="sep-line">|</span><span>扫码注册</span>
           </h3>

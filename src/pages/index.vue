@@ -7,7 +7,7 @@
         <swiper :options="swiperOption">
           <swiper-slide v-for="(item,index) in slideList" :key="index">
             <a :href="'/#/product/'+item.id">
-              <img :src="item.img" alt="">
+              <img v-lazy="item.img" alt="">
             </a>
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
@@ -34,7 +34,7 @@
 <!--                <a :href="'/#/product/'+item.id">-->
                   <span :class="{'new-pro':j%2==0}">新品</span>
                   <div class="item-img">
-                    <img v-lazy="item.mainImage" alt="">
+                    <img v-lazy="item.mainImage" alt="" >
                   </div>
                   <div class="item-info">
                     <h3>{{ item.name }}</h3>
@@ -155,15 +155,21 @@ export default {
       })
     },
     addcart(id){
-
       this.axios.post('/carts',{
         productId:id,
         selected: true
       }).then((res)=>{
         this.isshow = true;
         this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
+      }).catch((res)=>{
+        if (res.status === 10) {
+          this.$router.push('/login');
+        } else {
+          this.$message.error(res.msg);
+        }
       });
     },
+
     goToCart(){
       this.$router.push('/cart');
     }

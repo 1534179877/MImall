@@ -15,12 +15,20 @@ export default {
 
     }
   },
+
   mounted() {
-    if(this.$cookie.get('userId')){
+   /* if(this.$cookie.get('userId')){
       this.getUsers();
       this.getCartCount();
-    }
+      this.saveState();
+    }*/
+    this.getUsers();
+    this.getCartCount();
 
+
+  },
+  created() {
+    window.addEventListener('unload', this.saveState);
   },
   methods:{
     getUsers(){
@@ -32,6 +40,9 @@ export default {
       this.axios.get('/carts/products/sum').then((res)=>{
         this.$store.dispatch('saveCartCount',res)
       })
+    },
+    saveState () {
+      sessionStorage.setItem('state', JSON.stringify(this.$store.state))
     }
   }
 }
