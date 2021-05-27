@@ -246,7 +246,7 @@ name: "navHeader",
       this.axios.post('/user/logout').then(()=>{
         this.$message.success("退出成功");
         //清除cookie
-        this.$cookie.set('userId','',{expires:'-1'});
+        this.$cookie.set('userid','',{expires:'-1'});
         this.$store.dispatch('saveUserName','');
         this.$store.dispatch('saveCartCount','0');
       })
