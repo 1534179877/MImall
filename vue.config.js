@@ -6,7 +6,7 @@
 module.exports = {
   devServer:{
     host:'localhost',
-    port:8080,
+    port:8081,
     //代理
     proxy:{
       '/api':{

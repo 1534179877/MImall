@@ -45,7 +45,6 @@ export default {
     },
     saveState () {
      storage.setItem('userandcart',this.$store.state)
-
       //window.sessionStorage.setItem('mimall', JSON.stringify(this.$store.state));
     },
 

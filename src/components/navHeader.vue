@@ -14,7 +14,7 @@
           <a href="javascript:" v-if="username" @click="logout">退出</a>
           <a href="javascript:" v-if="username" @click="gotoorderlist">我的订单</a>
 
-          <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
+          <a href="javascript:" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
         </div>
       </div>
     </div>
@@ -47,16 +47,16 @@
                   <li class="product">
                     <a href="javascript:" target="_blank">
                       <div class="pro-img">
-                        <img src="require('../../public/imgs/nav-img/nav-2.png')" alt="">
+                        <img src="/imgs/nav-img/nav-2.png" alt="">
                       </div>
                       <div class="pro-name">小米CC9</div>
                       <div class="pro-price">￥2999</div>
                     </a>
                   </li>
                   <li class="product">
-                    <a href="javascript:;" target="_blank">
+                    <a href="javascript:" target="_blank">
                       <div class="pro-img">
-                        <img src="require('../../public/imgs/nav-img/nav-1.png')" alt="">
+                        <img src="/imgs/nav-img/nav-1.png" alt="">
                       </div>
                       <div class="pro-name">小米11</div>
                       <div class="pro-price">￥5999</div>
@@ -65,7 +65,7 @@
                   <li class="product">
                     <a href="javascript:;" target="_blank">
                       <div class="pro-img">
-                        <img src="require('../../public/imgs/nav-img/nav-2.png')" alt="">
+                        <img src="/imgs/nav-img/nav-2.png" alt="">
                       </div>
                       <div class="pro-name">小米11pro</div>
                       <div class="pro-price">￥4999</div>
@@ -74,7 +74,7 @@
                   <li class="product">
                     <a href="javascript:;" target="_blank">
                       <div class="pro-img">
-                        <img src="../../public/imgs/nav-img/nav-3.png" alt="">
+                        <img src="/imgs/nav-img/nav-3.png" alt="">
                       </div>
                       <div class="pro-name">小米MIX FOLD</div>
                       <div class="pro-price">￥9999</div>

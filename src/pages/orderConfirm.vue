@@ -35,7 +35,7 @@
               <div class="phone">{{item.receiverMobile}}</div>
               <div class="street">{{item.receiverProvince + ' ' + item.receiverCity + ' ' + item.receiverDistrict + ' ' + item.receiverAddress}}</div>
               <div class="action">
-                <a href="javascript:;" class="fl" @click="delAddress(item)">
+                <a href="javascript:" class="fl" @click="delAddress(item)">
                   <svg class="icon icon-del">
                     <use xlink:href="#icon-del"></use>
                   </svg>
@@ -227,7 +227,8 @@ export default {
       let method,url,params={}; // 动态接口参数
       //通过用户行为来动态请求
       if(userAction == 0){
-        method = 'post',url = '/shippings';
+        method = 'post';
+            url = '/shippings';
       }else if(userAction == 1){
         method = 'put',url = `/shippings/${checkedItem.id}`;
       }else {

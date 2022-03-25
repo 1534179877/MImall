@@ -8,13 +8,15 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueCookie from 'vue-cookie'
 import store from './store'
 //import env from './env'
+import sensors from "sa-sdk-javascript";
 
 
 Vue.config.productionTip = false
 Vue.prototype.axios = axios; //原型挂载
 Vue.use(VueLazyload,{
   attempt:2, //尝试加载次数
-  loading:'public/imgs/loading-svg/loading-balls.svg'//加载的路径
+  loading:'/imgs/loading-svg/loading-balls.svg'//加载的路径
+
 })
 
 Vue.use(VueCookie);

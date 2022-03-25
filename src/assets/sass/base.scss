@@ -73,7 +73,6 @@ a{
     height: 55px;
     &:before{
       content: ' ';
-
       @include bacImg(55px,55px,"/imgs/mi-logo.png");
       transition: margin .5s;
     }
